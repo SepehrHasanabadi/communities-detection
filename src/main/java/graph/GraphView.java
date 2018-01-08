@@ -8,49 +8,24 @@ import java.util.ArrayList;
  */
 public class GraphView {
 
-    public static int[][] getMatrixFromFile()
+    public static void main(String[] args) throws Exception {
+        clusterViewGraph();
+    }
+
+    public static void clusterViewGraph()
             throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("facebook.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("part-r-00000.txt"));
+        PrintWriter writer;
+        writer = new PrintWriter("output.txt", "UTF-8");
+
         String line;
-        boolean firstLine = true;
-        int[][] matrix = null;
         while ((line = reader.readLine()) != null) {
-            if (firstLine) {
-                matrix = new int[Integer.parseInt(line)][Integer.parseInt(line)];
-                firstLine = false;
-            }
-            else {
-                Integer xIndex = Integer.parseInt(line.split(" ")[0]);
-                Integer yIndex = Integer.parseInt(line.split(" ")[1]);
-                matrix[xIndex][yIndex] = 1;
-                matrix[yIndex][xIndex] = 1;
+            if (Integer.parseInt(line.split("\t")[1]) < 1000) {
+                writer.println(line);
             }
         }
         reader.close();
-        return matrix;
+        writer.close();
     }
-
-    public static void writeOutputToFile(int nodeCount, Graph graph) {
-        ArrayList<Integer> ids = new ArrayList<>();
-        PrintWriter writer;
-        try {
-            writer = new PrintWriter("output.txt", "UTF-8");
-            for (Edge edge : graph.getEdges()) {
-                writer.println(edge.getFirstNode().getId() + " - " + edge.getSecondNode().getId());
-                ids.add(edge.getFirstNode().getId());
-                ids.add(edge.getSecondNode().getId());
-            }
-            for (int i = 0; i < nodeCount; i++) {
-                if (!ids.contains(i)) {
-                    writer.println(i);
-                }
-            }
-            writer.close();
-        } catch (FileNotFoundException | UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-    }
-
 
 }

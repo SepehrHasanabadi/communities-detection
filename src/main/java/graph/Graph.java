@@ -103,20 +103,6 @@ public class Graph {
         this.nodes = nodes;
     }
 
-    //    private void createGraph(int rootIndex, int level) {
-//        for (int i = 0; i < matrix[rootIndex].length; i++) {
-//            if (matrix[rootIndex][i] == 1 && nodes[i] == null) {
-//                nodes[i] = new Node(i);
-//                nodes[i].setLevel(level +  1);
-//                nodes[rootIndex].addChild(nodes[i]);
-//            }
-//        }
-//
-//        for (int i = 0; i < matrix[rootIndex].length; i++) {
-//            if (matrix[rootIndex][i] == 1 && nodes[i]!= null && nodes[i].getLevel() == level + 1)
-//                createGraph(i, level + 1);
-//        }
-//    }
 }
 
 

@@ -15,28 +15,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  */
 public class Main {
 
-//    private static graph.GraphLogic graphLogic = new graph.GraphLogic();
-//    public static void main(String... args) {
-//        try {
-//            int[][] matrix = graph.GraphView.getMatrixFromFile();
-//            graph.GraphView.writeOutputToFile(matrix.length, graphLogic.splitGraph(graphLogic.getFinalGraph(matrix), 2));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    public static void main(String[] args) throws Exception {
-//
-//        try {
-//            int[][] matrix = graph.GraphView.getMatrixFromFile();
-//            Graph graph = new Graph(12, matrix);
-//            GraphView.writeOutputToFile(matrix.length, graph);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
-
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "graph clustering");

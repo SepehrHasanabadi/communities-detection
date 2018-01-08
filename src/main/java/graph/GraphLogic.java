@@ -36,5 +36,4 @@ public class GraphLogic {
         return splitGraph(graph, count - 1);
     }
 
-
 }
